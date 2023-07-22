@@ -77,5 +77,6 @@ void swapp(int *array, size_t size, int i, int j)
 
 void quick_sort(int *array, size_t size)
 {
+	if (array)
 		make_partitions_with_pivot(array, size, 0, size - 1);
 }
