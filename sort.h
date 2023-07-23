@@ -23,10 +23,10 @@ void print_array(const int *array, size_t size);
 void bubble_sort(int *array, size_t size);
 void insertion_sort_list(listint_t **list);
 void selection_sort(int *array, size_t size);
-int find_pivot(int *array, size_t size, int start, int last);
-void make_partitions_with_pivot(int *array, size_t size, int start, int last);
+int find_pivot(int *array, size_t size, size_t start, size_t last);
+void make_partitions_with_pivot(int *array, size_t size, size_t start, size_t last);
 void quick_sort(int *array, size_t size);
 void quick_sort_hoare(int *array, size_t size);
 void heap_sort(int *array, size_t size);
-
+void shell_sort(int *array, size_t size);
 #endif
