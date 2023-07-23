@@ -10,23 +10,23 @@
  */
 void swapp(int *array, size_t size, int i, int j)
 {
-        int temp;
+	int temp;
 
-        temp = array[j];
-        if (array[i] != array[j])
-        {
-                array[j] = array[i];
-                array[i] = temp;
-                print_array(array, size);
-        }
+	temp = array[j];
+	if (array[i] != array[j])
+	{
+		array[j] = array[i];
+		array[i] = temp;
+		print_array(array, size);
+	}
 }
 
 /**
  * get_the_root_and_children - puts every elemnts in the right position
- * @arr: array
+ * @array: the array
  * @size: size of array
- * @n: the node to trim
- * @i: the largest value found thus far
+ * @n: the size index to use .
+ * @i: the index of the parent.
  */
 void get_the_root_and_children(int *array, size_t size, int n, int i)
 {
