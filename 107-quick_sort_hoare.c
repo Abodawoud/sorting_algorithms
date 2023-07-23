@@ -14,7 +14,7 @@ int find_pivot(int *array, size_t size, int start, int last)
 
 	for (; j < last; j++)
 	{
-		if (array[j] <= array[last])
+		if (array[j] < array[last])
 		{
 			i++;
 			swapp(array, size, i, j);
@@ -35,16 +35,15 @@ int find_pivot(int *array, size_t size, int start, int last)
  */
 void make_partitions_with_pivot(int *array, size_t size, int start, int last)
 {
-        int pivot;
+	int pivot;
 
-        if (start > last)
-                return;
+	if (start > last)
+		return;
 
-        pivot = find_pivot(array, size, start, last);
-                make_partitions_with_pivot(array, size, start, pivot - 1);
-                make_partitions_with_pivot(array, size, pivot + 1, last);
+	pivot = find_pivot(array, size, start, last);
+	make_partitions_with_pivot(array, size, start, pivot - 1);
+	make_partitions_with_pivot(array, size, pivot + 1, last);
 }
-
 /**
  * swapp - swaps two eles
  *
@@ -56,15 +55,15 @@ void make_partitions_with_pivot(int *array, size_t size, int start, int last)
  */
 void swapp(int *array, size_t size, int i, int j)
 {
-        int temp;
+	int temp;
 
-        temp = array[j];
-        if (array[i] != array[j])
-        {
-                array[j] = array[i];
-                array[i] = temp;
-                print_array(array, size);
-        }
+	temp = array[j];
+	if (array[i] != array[j])
+	{
+		array[j] = array[i];
+		array[i] = temp;
+		print_array(array, size);
+	}
 }
 
 /**
@@ -76,7 +75,6 @@ void swapp(int *array, size_t size, int i, int j)
  */
 void quick_sort_hoare(int *array, size_t size)
 {
-        if (array)
-                make_partitions_with_pivot(array, size, 0, size - 1);
+	if (array)
+		make_partitions_with_pivot(array, size, 0, size - 1);
 }
-

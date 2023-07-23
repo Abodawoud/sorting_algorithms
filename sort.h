@@ -27,4 +27,6 @@ int find_pivot(int *array, size_t size, int start, int last);
 void make_partitions_with_pivot(int *array, size_t size, int start, int last);
 void quick_sort(int *array, size_t size);
 void quick_sort_hoare(int *array, size_t size);
+void heap_sort(int *array, size_t size);
+
 #endif
