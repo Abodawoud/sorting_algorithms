@@ -21,14 +21,14 @@ void swapp(int *array, size_t size, int i, int j)
 	}
 }
 /**
- * find_pivot - a function that is used to find the pivot
+ * find_pivot_with_hoare - a function that is used to find the pivot
  * @array: arr of ints
  * @size: Size of array
  * @start: first index in the array or sub-array
  * @last: last index in the array or sub-array
  * Return: the pivot's index
  */
-int find_pivot(int *array, size_t size, size_t start, size_t last)
+int find_pivot_with_hoare(int *array, size_t size, size_t start, size_t last)
 {
 	int pivot = array[last], i = start - 1, j = last + 1;
 
@@ -48,7 +48,7 @@ int find_pivot(int *array, size_t size, size_t start, size_t last)
 	}
 }
 /**
- * make_partitions_with_pivot - a function that is
+ * make_partitions_with_pivot_hoare - a function that is
  * used to make partitions with the pivot [low, piv, high]
  * @array: arr of ints
  * @size: Size of array
@@ -56,16 +56,16 @@ int find_pivot(int *array, size_t size, size_t start, size_t last)
  * @last: last index in the array or sub-array
  * Return: void
  */
-void make_partitions_with_pivot(int *array, size_t size,
+void make_partitions_with_pivot_hoare(int *array, size_t size,
 				size_t start, size_t last)
 {
 	size_t border;
 
 	if (start < last)
 	{
-		border = find_pivot(array, size, start, last);
-		make_partitions_with_pivot(array, size, start, border);
-		make_partitions_with_pivot(array, size, border + 1, last);
+		border = find_pivot_with_hoare(array, size, start, last);
+		make_partitions_with_pivot_hoare(array, size, start, border);
+		make_partitions_with_pivot_hoare(array, size, border + 1, last);
 	}
 }
 /**
@@ -80,5 +80,5 @@ void quick_sort_hoare(int *array, size_t size)
 	if (!array || size < 2)
 		return;
 
-	make_partitions_with_pivot(array, size, 0, size - 1);
+	make_partitions_with_pivot_hoare(array, size, 0, size - 1);
 }
