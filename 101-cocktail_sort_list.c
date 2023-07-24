@@ -8,19 +8,16 @@
 void cocktail_sort_list(listint_t **list)
 {
 	listint_t *curr, *curr2, *temp;
-	int flag, list_size, size, list_size1;
+	int flag;
 
 	if (list == NULL || *list == NULL || (*list)->next == NULL)
 		return;
-	list_size = calc_list_size(*list);
-	list_size1 = list_size;
 	curr = *list;
 	while (curr)
 	{
 		flag = 0;
 		curr2 = curr;
-		size = list_size1--;
-		while (curr2->next && size--)
+		while (curr2->next)
 		{
 			if (curr2->n > curr2->next->n)
 			{
@@ -33,8 +30,7 @@ void cocktail_sort_list(listint_t **list)
 		if (!flag)
 			break;
 		temp = get_last_node(*list);
-		size = list_size1 + 1;
-		while (temp->prev && size--)
+		while (temp->prev)
 		{
 			if (temp->n < temp->prev->n)
 			{
@@ -73,18 +69,14 @@ int calc_list_size(listint_t *list)
 	listint_t *curr;
 	int cnt;
 
-	/* Initialize 'curr' as the head of the list and 'cnt' as 0 */
 	curr = list;
 	cnt = 0;
 
-	/* Traverse the list and increment 'cnt' for each node */
 	while (curr)
 	{
 		curr = curr->next;
 		cnt++;
 	}
-
-	/* Return the total number of nodes,which represents the size of the list*/
 	return (cnt);
 }
 
@@ -99,16 +91,13 @@ listint_t *get_last_node(listint_t *list)
 {
 	listint_t *curr;
 
-	/* Initialize 'curr' as the head of the list */
 	curr = list;
 
-	/* Traverse the list until the last node is reached */
 	while (curr->next)
 	{
 		curr = curr->next;
 	}
 
-	/* Return the last node of the list */
 	return (curr);
 }
 
@@ -125,10 +114,8 @@ listint_t *swap_list(listint_t *list, listint_t *curr2)
 {
 	listint_t *temp;
 
-	/* Store the previous node of the current node in 'temp' */
 	temp = curr2->prev;
 
-	/* Update pointers to perform the node swap */
 	curr2->prev = temp->prev;
 	if (temp->prev)
 		temp->prev->next = curr2;
@@ -139,10 +126,8 @@ listint_t *swap_list(listint_t *list, listint_t *curr2)
 	curr2->next = temp;
 	temp->prev = curr2;
 
-	/* Update the 'list' pointer if the current node is now the first node */
 	if (!curr2->prev)
 		list = curr2;
 
-	/* Return the updated list (the last node remains unchanged) */
 	return (list);
 }
