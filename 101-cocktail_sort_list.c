@@ -40,8 +40,9 @@ void cocktail_sort_list(listint_t **list)
 			} else
 				temp = temp->prev;
 		}
-		if (curr->next->n < curr->n)
-			curr = curr; else
+		if (curr->next != NULL && curr->next->n < curr->n)
+			curr = curr;
+		else
 			curr = curr->next;
 	}
 }
