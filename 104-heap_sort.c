@@ -50,14 +50,16 @@ void get_the_root_and_children(int *array, size_t size, int n, int i)
  */
 void heap_sort(int *array, size_t size)
 {
-	int i = (size / 2) - 1;
+	int i;
+
+	if (!array || size < 2)
+		return;
 
 	if (array)
 	{
 		for (i = size / 2 - 1; i >= 0; i--)
-		{
 			get_the_root_and_children(array, size, size, i);
-		}
+
 		for (i = size - 1; i >= 0; i--)
 		{
 			swapp(array, size, 0, i);
