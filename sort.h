@@ -32,4 +32,8 @@ void quick_sort(int *array, size_t size);
 void quick_sort_hoare(int *array, size_t size);
 void heap_sort(int *array, size_t size);
 void shell_sort(int *array, size_t size);
+listint_t *get_last_node(listint_t *list);
+listint_t *swap_list(listint_t *list, listint_t *curr2);
+void cocktail_sort_list(listint_t **list);
+int calc_list_size(listint_t *list);
 #endif
