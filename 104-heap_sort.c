@@ -65,6 +65,5 @@ void heap_sort(int *array, size_t size)
 			swapp(array, size, 0, i);
 			get_the_root_and_children(array, size, i, 0);
 		}
-		i = 0;
 	}
 }
