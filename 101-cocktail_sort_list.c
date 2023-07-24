@@ -36,8 +36,6 @@ void cocktail_sort_list(listint_t **list)
 		size = list_size1 + 1;
 		while (temp->prev && size--)
 		{
-			printf("%d\n", curr->n);
-			printf("%d\n", temp->n);
 			if (temp->n < temp->prev->n)
 			{
 				*list = swap_list(*list, temp);
