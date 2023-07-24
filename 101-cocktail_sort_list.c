@@ -8,16 +8,19 @@
 void cocktail_sort_list(listint_t **list)
 {
 	listint_t *curr, *curr2, *temp;
-	int flag;
+	int flag, list_size, size, list_size1;
 
 	if (list == NULL || *list == NULL || (*list)->next == NULL)
 		return;
+	list_size = calc_list_size(*list);
+	list_size1 = list_size;
 	curr = *list;
 	while (curr)
 	{
 		flag = 0;
 		curr2 = curr;
-		while (curr2->next)
+		size = list_size1--;
+		while (curr2->next && size--)
 		{
 			if (curr2->n > curr2->next->n)
 			{
@@ -30,8 +33,11 @@ void cocktail_sort_list(listint_t **list)
 		if (!flag)
 			break;
 		temp = get_last_node(*list);
-		while (temp->prev)
+		size = list_size1 + 1;
+		while (temp->prev && size--)
 		{
+			printf("%d\n", curr->n);
+			printf("%d\n", temp->n);
 			if (temp->n < temp->prev->n)
 			{
 				*list = swap_list(*list, temp);
