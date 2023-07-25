@@ -37,4 +37,6 @@ listint_t *swap_list(listint_t *list, listint_t *curr2);
 void cocktail_sort_list(listint_t **list);
 int calc_list_size(listint_t *list);
 void merge_sort(int *array, size_t size);
+void _swapp(int *array, int i, int j);
+void radix_sort(int *array, size_t size);
 #endif
